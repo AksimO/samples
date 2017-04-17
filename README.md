@@ -1,39 +1,31 @@
-# WeatherApp
-Node JS/Angular/React app which shows the weather condition for 10 US cities.
+# WeatherApp - by John Archambault
+Node JS/Redux/React app which shows the weather condition for 10 US cities.
 
-### Notes:
-* Feel free to use any third party library
-* Submit deployable app with detailed setup instructions. 
-* Take your time to complete the exercise. It is the only way for us to know how you code.
+## Setup:
+This WebApp runs on Node.js, specifically version 6.9.4. If you need to update or install Node.js, go here: https://nodejs.org/en/
+Once you have cloned the directory locally, one first needs to install all the node packages. To do this via the command line:
+ * go to the correct directory and type 'npm install'
+ * once modules are installed, type 'npm start'
+ * the WebApp should launch, and will be viewable at: http://localhost:3000/
 
-## Problem:
-Use wunderground weather api to fetch the temperature for following cities:
+If you are deploying the app using some sort of platform like Heroku, then it is likely you need not type anything to either install
+the modules or run the app.
 
-* Austin, TX
-* Denver, CO
-* San Jose, CA
-* Washington, DC
-* Fayetteville, AR
-* Seattle, WA
-* Raleigh, NC
-* Boston, MA
-* Des Moines, IA
-* Salt Lake City, UT
 
-Show the temperature in both `Fahrenheit` and `Celius` units. 
-Sort the cities in the descending order based on their temperatures. 
+## My Solution:
+It seems that it is not possible to use the wunderground api to get data for multiple locations in one call. Message boards
+with comments from as recently as two months ago indicate this:
 
-### Api Details:
-Api details can be found here:
-https://www.wunderground.com/weather/api/d/docs
+https://apicommunity.wunderground.com/weatherapi/topics/query-multiple-locations-in-one-call
 
-Saylent Api Key:
-```
-6135f78e52c9e3ca
-```
+From my point of view the fact that I needed to make ten api calls to get all the required data was the key challenge in this exercise.
+I chose a more non-standard, pragmatic way of managing state, relying more on the state of the React component than I normally would.
+I reasoned that this was best as otherwise there would be a lot of code duplication in the app's actions and reducers. Besides, I was
+already relying heavily on the component's state to sort the cities by temperature.
 
-### Screen Details:
-Use the following screen layout to display the result:
+Another pragmatic choice I made was to add a boolean flag 'updateComponent' to the component's state. By doing this I was able to keep
+the component from re-rendering an enormous number of times, as would otherwise be the case given all the api calls. In the end the
+component only renders twice - once when it is mounted, and once more when the data has been sorted properly.
 
-![App Screenshot](https://github.com/saylent/WeatherApp/blob/master/app-screen.png)
+
 
