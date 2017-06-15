@@ -3,7 +3,7 @@ var Symbol = require('es6-symbol')
 /**
  * @fixme in a real app, wunderground api key (and url) should be stored in a node environment variable.
  */
-const BASE_URL = 'http://api.wunderground.com/api/6135f78e52c9e3ca/'
+const BASE_URL = 'http://api.wunderground.com/api/c4d55d91c860c56e/'
 
 function callApi(endpoint) {
 
