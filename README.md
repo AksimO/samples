@@ -1,5 +1,5 @@
 # WeatherApp - by John Archambault
-Node JS/Redux/React app which shows the weather condition for 10 US cities.
+Node JS/Redux/React app which shows the weather condition for 10 US cities, sorted by temperature.
 
 ## Setup:
 This WebApp runs on Node.js, specifically version 6.9.4. If you need to update or install Node.js, go here: https://nodejs.org/en/
